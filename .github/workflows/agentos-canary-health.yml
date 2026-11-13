@@ -1,0 +1,34 @@
+name: AgentOS canary public health
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/agentos-canary-health.yml'
+  workflow_dispatch:
+  schedule:
+    - cron: '17 */6 * * *'
+permissions:
+  contents: read
+jobs:
+  live-canary-health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Confirm deployed customized agent OS health endpoint
+        env:
+          HEALTH_URL: https://noetfield-agentos-canary-staging.up.railway.app/api/health
+        run: |
+          set -euo pipefail
+          status=$(curl -sS --location --max-time 20 --retry 2 --retry-delay 2             -o /tmp/agentos_health.json -w '%{http_code}' "$HEALTH_URL")
+          echo "HTTP status: $status"
+          if [ "$status" != "200" ]; then
+            echo 'Canary /api/health did not return 200.' >&2
+            exit 1
+          fi
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          value=json.loads(Path('/tmp/agentos_health.json').read_text())
+          assert isinstance(value, dict), 'Expected health object'
+          print('Deployed canary HTTP health JSON received; no claim of agent task execution')
+          PY
