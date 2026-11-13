@@ -1,0 +1,57 @@
+{
+  "schema_version": "noetfield.agentos.architecture.v1",
+  "product": "Noetfield AgentOS",
+  "baseline": {
+    "upstream": "paperclipai/paperclip",
+    "tag": "v2026.1106.0",
+    "license": "MIT",
+    "source_scope": "full source and Git history"
+  },
+  "system_owner": "Noetfield Systems Inc.",
+  "owners": {
+    "founder_intent": "sina_founder_os",
+    "authority": "existing Executive Governor / NAC",
+    "workforce": "Noetfield AgentOS (Paperclip upstream fork)",
+    "business_operations": "Company OS / NOOS",
+    "worker": "Runway / Agent Fabric / qualifying hosted runners",
+    "proof": "Independent Verifier",
+    "reporting": "Company Floor + Founder OS"
+  },
+  "fork_features": [
+    "full Paperclip UI",
+    "org chart",
+    "issues",
+    "agent roles",
+    "skills",
+    "budgets",
+    "routines",
+    "workspaces",
+    "approvals",
+    "CLI",
+    "existing runner adapters"
+  ],
+  "differentiation": [
+    "founder intent fidelity",
+    "tenant-governed dispatch",
+    "independent proof",
+    "commercial outcome lineage",
+    "bilingual RTL-LTR UX",
+    "cost-aware workforce"
+  ],
+  "statuses": [
+    "SOURCE_IMPORTED",
+    "OVERLAY_TESTED",
+    "CANARY_DEPLOYED",
+    "WORKFORCE_COMMISSIONED",
+    "REAL_TASK_EXECUTED",
+    "INDEPENDENT_OUTCOME_VERIFIED",
+    "CANONICAL_CUTOVER"
+  ],
+  "non_goals": [
+    "duplicate governor",
+    "duplicate scheduler",
+    "rewritten Paperclip UI",
+    "fictional revenue",
+    "cross-venture credential sharing"
+  ]
+}

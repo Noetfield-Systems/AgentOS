@@ -1,0 +1,11 @@
+{
+  "import_type": "FULL_SOURCE_REWRITTEN_HISTORY_NOT_NATIVE_GITHUB_FORK",
+  "source_repo": "paperclipai/paperclip",
+  "upstream_release": "v2026.1106.0",
+  "original_upstream_sha": "d69631b01b9c658f80bf8bed389863dce82643e1",
+  "original_history_commit_count": 5534,
+  "rewrite": "move .github/workflows/* to noetfield/vendor-source/upstream-github-workflows/* throughout history",
+  "history_preserved_with_rewritten_commit_ids": true,
+  "license": "MIT",
+  "production_deployed": false
+}

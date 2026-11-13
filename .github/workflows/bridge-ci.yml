@@ -1,0 +1,29 @@
+name: AgentOS bridge and provenance
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  issue-bridge-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate source attestation and required contracts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          attestation = json.loads(Path('noetfield/source-attestation.json').read_text())
+          assert attestation['license'] == 'MIT'
+          assert attestation['original_upstream_sha'] == 'd69631b01b9c658f80bf8bed389863dce82643e1'
+          for path in ('LICENSE', 'noetfield/FOUNDER-EXECUTION-CONTRACT.md', 'integrations/paperclip/authorized_issue_bridge.py'):
+              assert Path(path).exists(), path
+          print('Source metadata and contracts verified; this does NOT imply full app imported')
+          PY
+      - name: Run zero-secret authorized issue bridge regression tests
+        run: python -m unittest discover -s tests -p 'test_paperclip_authorized_bridge.py' -v
