@@ -1,0 +1,58 @@
+name: Import Owned AgentOS Full Source
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import-full-fork:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Guard private destination before reading private source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          visibility="$(gh api "repos/$GITHUB_REPOSITORY" --jq '.private')"
+          if [ "$visibility" != "true" ]; then
+            echo "::error::AgentOS is public. Set repository PRIVATE before importing the privately developed source/history."
+            exit 1
+          fi
+      - name: Import only canonical full-fork branch and all reachable history
+        env:
+          SOURCE_TOKEN: ${{ secrets.AGENTOS_SOURCE_READ_TOKEN }}
+          DEST_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if [ -z "$SOURCE_TOKEN" ]; then
+            echo "::error::Missing source read-only credential AGENTOS_SOURCE_READ_TOKEN."
+            exit 1
+          fi
+          source_auth="$(printf 'x-access-token:%s' "$SOURCE_TOKEN" | base64 -w0)"
+          git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic ${source_auth}" \
+            clone --single-branch --no-tags \
+            --branch noetfield-agentos/full-history-premium-v1 \
+            https://github.com/Noetfield-Systems/sina_founder_os.git owned-source
+
+          cd owned-source
+          test -f LICENSE && test -f pnpm-lock.yaml && test -d server && test -d ui && test -d packages && test -d cli
+          test -f noetfield/source-attestation.json
+          test -f ui/src/noetfield/venture-team-presets.ts
+          echo "Source tip: $(git rev-parse HEAD)"
+          echo "Reachable source commits: $(git rev-list --count HEAD)"
+
+          dest_auth="$(printf 'x-access-token:%s' "$DEST_TOKEN" | base64 -w0)"
+          git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic ${dest_auth}" \
+            push https://github.com/Noetfield-Systems/AgentOS.git \
+            HEAD:refs/heads/import/full-history-premium-v1
+
+          echo "Owned full-fork import branch created. Existing Railway service untouched."
+      - name: Read back imported branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/branches/import%2Ffull-history-premium-v1" \
+            --jq '{name:.name,sha:.commit.sha,protected:.protected}'
