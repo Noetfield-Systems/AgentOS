@@ -4,6 +4,10 @@
 
 This repository is the **dedicated canonical destination** for the complete customized fork. The existing full-source fork is currently maintained on [`Noetfield-Systems/sina_founder_os` branch `noetfield-agentos/full-history-premium-v1`](https://github.com/Noetfield-Systems/sina_founder_os/tree/noetfield-agentos/full-history-premium-v1). The existing live canary uses that branch. **Do not confuse this destination's current documentation/bootstrap state with a completed full-source migration or production cutover.**
 
+## Implementation note — the owned fork is the platform
+
+No Paperclip Cloud onboarding or vendor waitlist. Use the actual self-hosted Noetfield AgentOS fork and its first-party native API. The already implemented [eight native venture-team presets](https://github.com/Noetfield-Systems/sina_founder_os/blob/noetfield-agentos/full-history-premium-v1/ui/src/noetfield/venture-team-presets.ts) and the [multi-venture execution charter](https://github.com/Noetfield-Systems/sina_founder_os/blob/noetfield-agentos/full-history-premium-v1/doc/plans/2026-11-13-sina-autonomous-venture-runtime-contract.md) are in the existing full-source branch. This destination has **not** yet imported the full app. The original external Paperclip container is a separate legacy service and is not the target.
+
 ## Current verified inventory (2026-11-13)
 
 | Layer | Canonical existing owner | What exists |

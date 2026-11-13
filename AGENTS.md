@@ -5,6 +5,13 @@ Read this before editing, migrating or deploying Noetfield AgentOS.
 ## Mission
 Build the **actual full-source Noetfield-owned Paperclip derivative**, not a mock dashboard, proxy shell, isolated agent registry or fresh substitute. Restore all upstream UI/server/CLI/DB/adapters and premium features while preserving Noetfield native roles, first-party authentication, Persian/English UX and Paperclip MIT attribution. Source is the **full-history topic branch** `Noetfield-Systems/sina_founder_os:noetfield-agentos/full-history-premium-v1`. See `docs/SERVICE-INVENTORY.md` and `docs/FULL-FORK-CUTOVER.md`.
 
+## Mandatory owned-fork rule — no Paperclip Cloud
+- There is **no wait for Paperclip Cloud, vendor SaaS, third-party Board key, or a replacement upstream image**. The actual app and native company-scoped APIs are self-hosted in the existing `noetfield-agentos-canary` service. First-party owner login/permissions are still required for real mutations.
+- **Authoritative current 8-team source:** `Noetfield-Systems/sina_founder_os` / `noetfield-agentos/full-history-premium-v1`, `ui/src/noetfield/venture-team-presets.ts`. Its native People Office uses authenticated same-instance APIs, with heartbeats off until worker commissioning.
+- **Latest runtime charter:** `doc/plans/2026-11-13-sina-autonomous-venture-runtime-contract.md` in the source branch. This is the operating policy for Hassan, Farid, seven proposed venture GMs, five feedback loops and 14 acceptance checks. It must not be displaced by historical upstream documents or by a duplicate agent registry.
+- Report real source status as `DEFINED`, `NATIVE_REGISTERED`, `RUN_EXECUTED`, `INDEPENDENTLY_VERIFIED`, `REAL_USER_ACTIVE`, `CASH_COLLECTED` separately. Kian, Arash, Raha, Nima, Navid, Dara, Sam are proposed until source-native identity and runtime readback exists; Farid remains `gm-buildrelay-farid`; Hassan is a single portfolio executive and Asad is unmapped.
+- Do not treat the earlier `paperclip-agent-workforce` image as the product to upgrade; maintain it only as a legacy rollback footprint until existing owned service cutover is proven.
+
 ## Correct authority and execution topology
 1. Sina Founder OS holds the original Founder goal, strategy and portfolio authority.
 2. Company OS/NOOS holds workstreams, real company operations and current approved plan.
