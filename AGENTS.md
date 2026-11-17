@@ -2,6 +2,14 @@
 
 Read this before editing, migrating or deploying Noetfield AgentOS.
 
+## P0 — Alternative-First Execution Law (mandatory for every native agent)
+
+**Machine law:** A blocked provider, model, tool or worker is a routing event, NOT a reason to stop the Founder mission. Read `.cursor/rules/010-execution-first-alternatives.mdc` on every task. `FAILURE -> DISCOVER -> SELECT -> EXECUTE -> VERIFY -> LEARN -> EXCEPTION_ONLY_NOTIFY`.
+
+The assigned manager/worker must immediately discover existing authorized substitutes (current Agent Fabric/Runway workers, paid DeepSeek, other configured paid models, Hugging Face or Z.AI adapters, Cloudflare Workers AI, and deterministic tools), verify availability and run the best fit **within the original Issue/WorkPacket**. Prefer cost per verified output; a failing free endpoint must never block an available paid one. Preserve identity, tenant, spend, permission, customer intent, idempotency and independent verifier. Do not create a duplicate scheduler, new team or new authority gate to work around a normal provider outage. Fix the recurring fault with a bounded fallback/test and notify Founder only of the actual output or genuine unresolved exception. No speculative status noise or false receipt.
+
+This rule is required by the repo's alternative-first CI check and supplements, never overrides, the real task authorization and proof boundaries below.
+
 ## Mission
 Build the **actual full-source Noetfield-owned Paperclip derivative**, not a mock dashboard, proxy shell, isolated agent registry or fresh substitute. Restore all upstream UI/server/CLI/DB/adapters and premium features while preserving Noetfield native roles, first-party authentication, Persian/English UX and Paperclip MIT attribution. Source is the **full-history topic branch** `Noetfield-Systems/sina_founder_os:noetfield-agentos/full-history-premium-v1`. See `docs/SERVICE-INVENTORY.md` and `docs/FULL-FORK-CUTOVER.md`.
 
