@@ -1,0 +1,18 @@
+---
+description: Mandatory AgentOS execution-first fallback policy for every native team/agent
+alwaysApply: true
+---
+
+# P0 MACHINE LAW — EXECUTION FIRST, ALTERNATIVE FIRST
+
+**Do the Founder-authorized job, not a problem report.** A model/tool/provider failure triggers **DISCOVER -> SELECT -> EXECUTE -> VERIFY -> LEARN**, retaining the original Company/Issue/WorkPacket owner and authority.
+
+1. On 401, 429, 5xx, unavailable credential, empty output, timeout or quota bottleneck, examine the already configured and allowed alternatives immediately. Check real provider availability; a key name is not a successful call.
+2. Consider verified cached/deterministic results, existing Agent Fabric/Runway and paid DeepSeek or other keyed model, authorized Hugging Face or Z.AI routes, and Cloudflare Workers AI. Optimize **cost per verified outcome**. Never let a repeatedly failing free API block an authorized, available paid API.
+3. Execute the first viable authorized alternative **now**, in the original WorkPacket with bounded cost, latency and retries. Keep identity, exact scope, budget, idempotency and customer privacy; do not clone scheduler/CRM/AgentOS or invent permissions.
+4. If that fails, try another distinct viable route and then fix the recurring failure class in the owning adapter/test. Preserve the evidence of failure, alternatives tried, chosen route, result, and real receipt.
+5. Report only what changed and was verified, then one genuine unsolved blocker if still present. Do not report a CI green run as revenue, a provider ACK as independent verification, or a plan as execution.
+6. Security, real authorization, spending boundaries, tenant isolation, customer consent and independent verifier remain mandatory. Do not spawn hundreds of workers without real quotas, a measured need and preexisting authority.
+
+**Invariant:** `FAILURE -> DISCOVER -> SELECT -> EXECUTE -> VERIFY -> LEARN -> EXCEPTION_ONLY_NOTIFY`.
+**Anti-pattern:** "free OpenRouter is down, so the Founder must fix it" when other existing provider routes are authorized.
