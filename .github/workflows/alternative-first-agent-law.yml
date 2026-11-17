@@ -1,0 +1,26 @@
+name: AgentOS Alternative-First Machine Law
+on:
+  pull_request:
+    paths:
+      - AGENTS.md
+      - .cursor/rules/010-execution-first-alternatives.mdc
+      - scripts/verify_execution_first_law.py
+      - .github/workflows/alternative-first-agent-law.yml
+  push:
+    branches: [main]
+    paths:
+      - AGENTS.md
+      - .cursor/rules/010-execution-first-alternatives.mdc
+      - scripts/verify_execution_first_law.py
+      - .github/workflows/alternative-first-agent-law.yml
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/verify_execution_first_law.py
